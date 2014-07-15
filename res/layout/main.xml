@@ -18,6 +18,12 @@
             android:paddingRight="50dp"
             android:text="Play"
             android:id="@+id/play_button" android:layout_gravity="center_horizontal"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Free the Princess"
+            android:id="@+id/princess_button" android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
 
