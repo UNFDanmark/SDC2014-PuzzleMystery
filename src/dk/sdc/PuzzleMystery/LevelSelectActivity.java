@@ -8,7 +8,7 @@ import android.widget.Button;
 
 /**
  * Created by sdc on 7/16/14.
- *///kage
+ *///kagemand
 public class LevelSelectActivity extends Activity {
 
     @Override
