@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
 
 
         Button playButton = (Button) findViewById(R.id.play_button);
-        Button princessButton = (Button) findViewById(R.id.princess_button);
+        Button levelSelect = (Button) findViewById(R.id.LevelSelectButton);
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,12 +33,11 @@ public class MainActivity extends Activity {
             }
         });
 
-        princessButton.setOnClickListener(new View.OnClickListener() {
+        levelSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent princessIntent = new Intent(getApplicationContext(), FreeThePrincessActivity.class);
-                startActivity(princessIntent);
-
+                Intent playLevelSelect = new Intent(getApplicationContext(), LevelSelectActivity.class);
+                startActivity(playLevelSelect);
             }
         });
     }
