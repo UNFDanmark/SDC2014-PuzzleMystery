@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 /**
  * Created by sdc on 7/15/14.
@@ -67,6 +68,8 @@ public class DragADotGame extends View implements View.OnTouchListener {
 
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
+
+
                 int distanceFinger = (int) (Math.sqrt((event.getX() - dotX) * (event.getX() - dotX) + ((event.getY() - dotY) * (event.getY() - dotY))));
                 if (distanceFinger < dotR)
                 {
@@ -74,6 +77,8 @@ public class DragADotGame extends View implements View.OnTouchListener {
                     dotX = event.getX();
                     dotY = event.getY();
                 }
+
+
                 //else
                 //{
                 //    inDot = false;
@@ -81,15 +86,22 @@ public class DragADotGame extends View implements View.OnTouchListener {
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                if (inDot)
-                {
-                    dotX = event.getX();
-                    dotY = event.getY();
-                    int distanceDots = (int) (Math.sqrt((dot2X-dotX)*(dot2X-dotX)+((dot2Y-dotY)*(dot2Y-dotY))));
-                    if (distanceDots < 2*dotR)
-                    {
-                        win = true;
-                        listener.puzzleFinished();
+                if (event.getPointerCount() > 1 && inDot){
+                    //Toast toast = Toast.makeText(getContext(), "Cheater! I think not", Toast.LENGTH_SHORT);
+                    //toast.show();
+                    inDot = false;
+                    dotX = 100;
+                    dotY = 100;
+                }
+                else {
+                    if (inDot) {
+                        dotX = event.getX();
+                        dotY = event.getY();
+                        int distanceDots = (int) (Math.sqrt((dot2X - dotX) * (dot2X - dotX) + ((dot2Y - dotY) * (dot2Y - dotY))));
+                        if (distanceDots < 2 * dotR) {
+                            win = true;
+                            listener.puzzleFinished();
+                        }
                     }
                 }
                 break;

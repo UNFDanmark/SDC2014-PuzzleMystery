@@ -22,12 +22,22 @@ public class MainActivity extends Activity {
 
 
         Button playButton = (Button) findViewById(R.id.play_button);
+        Button princessButton = (Button) findViewById(R.id.princess_button);
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent playIntent = new Intent(getApplicationContext(), DragADotActivity.class);
-                startActivityForResult(playIntent, 1);
+                startActivity(playIntent);
+
+            }
+        });
+
+        princessButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent princessIntent = new Intent(getApplicationContext(), FreeThePrincessActivity.class);
+                startActivity(princessIntent);
 
             }
         });
