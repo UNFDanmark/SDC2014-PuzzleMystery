@@ -14,8 +14,6 @@
             android:layout_width="125dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
             android:text="Play"
             android:id="@+id/play_button" android:layout_gravity="center_horizontal"/>
     <Button

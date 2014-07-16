@@ -27,5 +27,13 @@ public class LevelSelectActivity extends Activity {
                 startActivity(puzzle1Intent);
             }
         });
+
+        level2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent puzzle2Intent = new Intent(getApplicationContext(), FreeThePrincessActivity.class);
+                startActivity(puzzle2Intent);
+            }
+        });
     }
 }
