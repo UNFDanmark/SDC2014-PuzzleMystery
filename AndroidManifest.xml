@@ -13,10 +13,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="DragADotActivity"></activity>
-        <activity android:name=".FreeThePrincessActivity"/>
-        <activity android:name=".LevelSelectActivity"/>
-        <activity android:name=".DragADot2Activity"/>
-        <activity android:name=".FindTheCrownActivity"/>
+        <activity android:name="DragADotActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="keyboardHidden|orientation|screenSize">
+        </activity>
+        <activity android:name=".FreeThePrincessActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".LevelSelectActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".DragADot2Activity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".FindTheCroneForThePrincess"
+                  android:screenOrientation="portrait"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
     </application>
 </manifest>

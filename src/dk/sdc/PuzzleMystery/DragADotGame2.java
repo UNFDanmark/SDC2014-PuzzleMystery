@@ -72,6 +72,15 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
         listener = pListener;
     }
 
+    private void checkCollision (ArrayList arrayList, float x, float y) {
+        for (int i = 0; i < arrayList.size(); i++) {
+            Rect rect = (Rect) arrayList.get(i);
+            if (x-dotR-rect.right < 0 && y-dotR-rect.bottom < 0 && y+dotR-rect.top > 0) {
+
+            }
+        }
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -128,6 +137,10 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
             case MotionEvent.ACTION_UP:
                 inDot = false;
                 break;
+        }
+
+        if (inDot) {
+            checkCollision(wallsList, event.getX(), event.getY());
         }
 
         invalidate();
