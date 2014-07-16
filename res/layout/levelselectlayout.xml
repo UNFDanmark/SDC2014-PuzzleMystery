@@ -31,4 +31,24 @@
                 android:text="3"
                 android:id="@+id/Puzzle3Button"/>
     </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:text="4"
+                android:id="@+id/Puzzle4Button"/>
+        <Button
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:text="5"
+                android:id="@+id/Puzzle5Button"/>
+        <Button
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:text="6"
+                android:id="@+id/Puzzle6Button"/>
+    </LinearLayout>
 </LinearLayout>

@@ -16,5 +16,6 @@
         <activity android:name="DragADotActivity"></activity>
         <activity android:name=".FreeThePrincessActivity"/>
         <activity android:name=".LevelSelectActivity"/>
+        <activity android:name=".FindTheCroneForThePrincess"/>
     </application>
 </manifest>

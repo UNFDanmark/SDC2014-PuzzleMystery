@@ -19,6 +19,9 @@ public class LevelSelectActivity extends Activity {
         Button level1Button = (Button) findViewById(R.id.Puzzle1Button);
         Button level2Button = (Button) findViewById(R.id.Puzzle2Button);
         Button level3Button = (Button) findViewById(R.id.Puzzle3Button);
+        Button level4Button = (Button) findViewById(R.id.Puzzle4Button);
+        Button level5Button = (Button) findViewById(R.id.Puzzle5Button);
+        Button level6Button = (Button) findViewById(R.id.Puzzle6Button);
 
         level1Button.setOnClickListener(new View.OnClickListener() {
             @Override
