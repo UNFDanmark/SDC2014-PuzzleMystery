@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by sdc on 7/15/14.
+ * Created by sdc on 7/16/14.
  */
-public class DragADotActivity extends Activity{
+public class DragADot2Activity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DragADotGame game = new DragADotGame(getApplicationContext());
+        DragADotGame2 game = new DragADotGame2(getApplicationContext());
         setContentView(game);
 
         game.setPuzzleFinishListener(new PuzzleFinishListener() {
@@ -19,5 +19,6 @@ public class DragADotActivity extends Activity{
                 finish();
             }
         });
+
     }
 }
