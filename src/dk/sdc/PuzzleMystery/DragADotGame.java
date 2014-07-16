@@ -49,7 +49,6 @@ public class DragADotGame extends View implements View.OnTouchListener {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         canvas.drawCircle(dotX,dotY,dotR,redPaint);
         canvas.drawCircle(dot2X,dot2Y,dotR,redPaint);
         if (inDot)

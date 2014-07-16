@@ -45,5 +45,13 @@ public class LevelSelectActivity extends Activity {
                 startActivity(puzzle3Intent);
             }
         });
+
+        level4Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent puzzle4Intent = new Intent(getApplicationContext(), FindTheCrownActivity.class);
+                startActivity(puzzle4Intent);
+            }
+        });
     }
 }
