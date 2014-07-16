@@ -72,15 +72,6 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
         listener = pListener;
     }
 
-    private void checkCollision (ArrayList arrayList, float x, float y) {
-        for (int i = 0; i < arrayList.size(); i++) {
-            Rect rect = (Rect) arrayList.get(i);
-            if (x-dotR-rect.right < 0 && y-dotR-rect.bottom < 0 && y+dotR-rect.top > 0) {
-
-            }
-        }
-    }
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -92,8 +83,9 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
             canvas.drawRect((Rect) wallsList.get(i), redPaint);
         }
 
-        if (inDot)
+        if (inDot) {
             canvas.drawColor(redPaint.getColor());
+        }
     }
 
     @Override
@@ -101,49 +93,67 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
         //dotX = event.getX();
         //dotY = event.getY();
 
-        switch (event.getAction()){
-            case MotionEvent.ACTION_DOWN:
+        if (event.getPointerCount() > 1) {
+            resetDot();
+        }
+        else {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
 
-                int distanceFinger = (int) (Math.sqrt((event.getX() - dotX) * (event.getX() - dotX) + ((event.getY() - dotY) * (event.getY() - dotY))));
-                if (distanceFinger < dotR)
-                {
-                    inDot = true;
-                    dotX = event.getX();
-                    dotY = event.getY();
-                }
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-                if (event.getPointerCount() > 1 && inDot){
-                    //Toast toast = Toast.makeText(getContext(), "Cheater! I think not", Toast.LENGTH_SHORT);
-                    //toast.show();
-                    inDot = false;
-                    dotX = 600;
-                    dotY = 900;
-                }
-                else {
-                    if (inDot) {
+                    int distanceFinger = (int) (Math.sqrt((event.getX() - dotX) * (event.getX() - dotX) + ((event.getY() - dotY) * (event.getY() - dotY))));
+                    if (distanceFinger < dotR) {
+                        inDot = true;
                         dotX = event.getX();
                         dotY = event.getY();
-                        int distanceDots = (int) (Math.sqrt((dot2X - dotX) * (dot2X - dotX) + ((dot2Y - dotY) * (dot2Y - dotY))));
-                        if (distanceDots < 2 * dotR) {
-                            win = true;
-                            listener.puzzleFinished();
+                    }
+                    break;
+
+                case MotionEvent.ACTION_MOVE:
+                    if (event.getPointerCount() > 1 && inDot) {
+                        //Toast toast = Toast.makeText(getContext(), "Cheater! I think not", Toast.LENGTH_SHORT);
+                        //toast.show();
+                        inDot = false;
+                        resetDot();
+                    } else {
+                        if (inDot) {
+                            dotX = event.getX();
+                            dotY = event.getY();
+                            int distanceDots = (int) (Math.sqrt((dot2X - dotX) * (dot2X - dotX) + ((dot2Y - dotY) * (dot2Y - dotY))));
+                            if (distanceDots < 2 * dotR) {
+                                win = true;
+                                listener.puzzleFinished();
+                            }
                         }
                     }
-                }
-                break;
+                    break;
 
-            case MotionEvent.ACTION_UP:
-                inDot = false;
-                break;
-        }
+                case MotionEvent.ACTION_UP:
+                    inDot = false;
+                    resetDot();
+                    break;
+            }
 
-        if (inDot) {
-            checkCollision(wallsList, event.getX(), event.getY());
+            if (inDot) {
+                checkCollision(wallsList, event.getX(), event.getY());
+            }
         }
 
         invalidate();
         return true;
+    }
+
+    private void checkCollision (ArrayList arrayList, float x, float y) {
+        for (int i = 0; i < arrayList.size(); i++) {
+            Rect rect = (Rect) arrayList.get(i);
+            if (x-dotR < rect.right && x+dotR > rect.left && y-dotR < rect.bottom && y+dotR > rect.top) {
+                resetDot();
+            }
+        }
+    }
+
+    private void resetDot() {
+        dotX = 600;
+        dotY = 900;
+        inDot = false;
     }
 }
