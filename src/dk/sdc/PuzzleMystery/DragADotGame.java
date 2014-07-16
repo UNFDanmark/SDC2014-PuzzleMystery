@@ -17,10 +17,9 @@ public class DragADotGame extends View implements View.OnTouchListener {
 
     float dotX = 100;
     float dotY = 100;
-    float dotR = 50;
+    float dotR = 70;
     float dot2X = 500;
     float dot2Y = 700;
-    float dot2R = 50;
 
     PuzzleFinishListener listener;
 
@@ -52,7 +51,7 @@ public class DragADotGame extends View implements View.OnTouchListener {
         super.onDraw(canvas);
 
         canvas.drawCircle(dotX,dotY,dotR,redPaint);
-        canvas.drawCircle(dot2X,dot2Y,dot2R,redPaint);
+        canvas.drawCircle(dot2X,dot2Y,dotR,redPaint);
         if (inDot)
             canvas.drawColor(redPaint.getColor());
 
