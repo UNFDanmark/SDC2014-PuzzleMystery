@@ -21,23 +21,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
 
 
-        Button playButton = (Button) findViewById(R.id.play_button);
-        Button levelSelect = (Button) findViewById(R.id.LevelSelectButton);
+        Button playButton = (Button) findViewById(R.id.LevelSelectButton);
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent playIntent = new Intent(getApplicationContext(), DragADotActivity.class);
+                Intent playIntent = new Intent(getApplicationContext(), LevelSelectActivity.class);
                 startActivity(playIntent);
-
-            }
-        });
-
-        levelSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent playLevelSelect = new Intent(getApplicationContext(), LevelSelectActivity.class);
-                startActivity(playLevelSelect);
             }
         });
     }

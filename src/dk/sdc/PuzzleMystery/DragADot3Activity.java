@@ -1,0 +1,24 @@
+package dk.sdc.PuzzleMystery;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+/**
+ * Created by sdc on 7/16/14.
+ */
+public class DragADot3Activity extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        DragADotGame3 game = new DragADotGame3(getApplicationContext());
+        setContentView(game);
+
+        game.setPuzzleFinishListener(new PuzzleFinishListener() {
+            @Override
+            public void puzzleFinished() {
+                finish();
+            }
+        });
+
+    }
+}

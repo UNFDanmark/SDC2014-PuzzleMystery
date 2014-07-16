@@ -16,41 +16,49 @@ public class LevelSelectActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.levelselectlayout);
 
-        Button level1Button = (Button) findViewById(R.id.Puzzle1Button);
-        Button level2Button = (Button) findViewById(R.id.Puzzle2Button);
-        Button level3Button = (Button) findViewById(R.id.Puzzle3Button);
-        Button level4Button = (Button) findViewById(R.id.Puzzle4Button);
-        Button level5Button = (Button) findViewById(R.id.Puzzle5Button);
-        Button level6Button = (Button) findViewById(R.id.Puzzle6Button);
+        Button dragPuzzle1Button = (Button) findViewById(R.id.dragPuzzle1);
+        Button dragPuzzle2Button = (Button) findViewById(R.id.dragPuzzle2);
+        Button dragPuzzle3Button = (Button) findViewById(R.id.dragPuzzle3);
+        Button clickPuzzle1Button = (Button) findViewById(R.id.clickPuzzle1);
+        Button clickPuzzle2Button = (Button) findViewById(R.id.clickPuzzle2);
+        Button clickPuzzle3Button = (Button) findViewById(R.id.clickPuzzle3);
 
-        level1Button.setOnClickListener(new View.OnClickListener() {
+        dragPuzzle1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent puzzle1Intent = new Intent(getApplicationContext(),DragADotActivity.class);
+                Intent puzzle1Intent = new Intent(getApplicationContext(), DragADotActivity.class);
                 startActivity(puzzle1Intent);
             }
         });
 
-        level2Button.setOnClickListener(new View.OnClickListener() {
+        dragPuzzle2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent puzzle2Intent = new Intent(getApplicationContext(), FreeThePrincessActivity.class);
+                Intent puzzle2Intent = new Intent(getApplicationContext(), DragADot2Activity.class);
                 startActivity(puzzle2Intent);
             }
         });
-        level3Button.setOnClickListener(new View.OnClickListener() {
+        dragPuzzle3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent puzzle3Intent = new Intent(getApplicationContext(), DragADot2Activity.class);
+                Intent puzzle3Intent = new Intent(getApplicationContext(), DragADot3Activity.class);
                 startActivity(puzzle3Intent);
             }
         });
 
-        level4Button.setOnClickListener(new View.OnClickListener() {
+        clickPuzzle1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent puzzle4Intent = new Intent(getApplicationContext(), FindTheCrownActivity.class);
+                Intent puzzle4Intent = new Intent(getApplicationContext(), FreeThePrincessActivity.class);
                 startActivity(puzzle4Intent);
+            }
+        });
+
+        clickPuzzle2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent puzzle5Intent = new Intent(getApplicationContext(), FindTheCrownActivity.class);
+                startActivity(puzzle5Intent);
             }
         });
     }

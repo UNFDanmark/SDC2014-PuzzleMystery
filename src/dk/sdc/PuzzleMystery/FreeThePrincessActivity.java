@@ -10,8 +10,8 @@ import android.widget.ImageButton;
  * Created by sdc on 7/15/14.
  */
 public class FreeThePrincessActivity extends Activity {
-    private int winClicks = 25;
-    private int Tællertilis = 0;
+    private int winTaps = 25;
+    private int tapCount = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,11 +21,11 @@ public class FreeThePrincessActivity extends Activity {
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Tællertilis++;
-                double jump = 255/winClicks;
-                int transparency = (int) (255-(Tællertilis*jump));
+                tapCount++;
+                double jump = 255/ winTaps;
+                int transparency = (int) (255-(tapCount *jump));
                 myButton.setBackgroundColor(Color.argb(transparency,77,148,255));
-                if (Tællertilis >= winClicks) {
+                if (tapCount >= winTaps) {
                     //myButton.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.princess_theme_av2));
                     myButton.setBackgroundColor(Color.argb(0, 0, 0, 0));
                     finish();

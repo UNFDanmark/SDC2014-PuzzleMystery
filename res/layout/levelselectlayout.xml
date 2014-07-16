@@ -11,6 +11,12 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Select a level to play"
             android:id="@+id/textViewTop" android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Drag-a-dot"
+            android:id="@+id/textView"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -19,18 +25,24 @@
                 android:layout_width="125dp"
                 android:layout_height="50dp"
                 android:text="1"
-                android:id="@+id/Puzzle1Button"/>
+                android:id="@+id/dragPuzzle1"/>
         <Button
                 android:layout_width="125dp"
                 android:layout_height="50dp"
                 android:text="2"
-                android:id="@+id/Puzzle2Button"/>
+                android:id="@+id/dragPuzzle2"/>
         <Button
                 android:layout_width="125dp"
                 android:layout_height="50dp"
                 android:text="3"
-                android:id="@+id/Puzzle3Button"/>
+                android:id="@+id/dragPuzzle3"/>
     </LinearLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Princess"
+            android:id="@+id/textView2"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -38,17 +50,17 @@
         <Button
                 android:layout_width="125dp"
                 android:layout_height="50dp"
-                android:text="4"
-                android:id="@+id/Puzzle4Button"/>
+                android:text="1"
+                android:id="@+id/clickPuzzle1"/>
         <Button
                 android:layout_width="125dp"
                 android:layout_height="50dp"
-                android:text="5"
-                android:id="@+id/Puzzle5Button"/>
+                android:text="2"
+                android:id="@+id/clickPuzzle2"/>
         <Button
                 android:layout_width="125dp"
                 android:layout_height="50dp"
-                android:text="6"
-                android:id="@+id/Puzzle6Button"/>
+                android:text="3"
+                android:id="@+id/clickPuzzle3"/>
     </LinearLayout>
 </LinearLayout>

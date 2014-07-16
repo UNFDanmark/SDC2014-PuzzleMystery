@@ -7,18 +7,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginTop="50dp"
             android:text="Puzzle Mysteries"
             android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
     <Button
             android:layout_width="125dp"
             android:layout_height="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="100dp"
             android:text="Play"
-            android:id="@+id/play_button" android:layout_gravity="center_horizontal"/>
-    <Button
-            android:layout_width="125dp"
-            android:layout_height="50dp"
-            android:text="Level Select"
             android:id="@+id/LevelSelectButton" android:layout_gravity="center_horizontal"/>
 </LinearLayout>
 

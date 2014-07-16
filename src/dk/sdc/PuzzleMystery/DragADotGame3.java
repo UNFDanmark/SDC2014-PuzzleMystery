@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Created by sdc on 7/16/14.
  */
-public class DragADotGame2 extends View implements View.OnTouchListener {
+public class DragADotGame3 extends View implements View.OnTouchListener {
 
     float dot2X = 570;
     float dot2Y = 890;
@@ -27,7 +27,6 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
     PuzzleFinishListener listener;
 
     Rect wall1 = new Rect();
-    Rect wall2 = new Rect();
     Rect leftWall = new Rect();
     Rect topWall = new Rect();
     Rect rightWall = new Rect();
@@ -40,17 +39,15 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
 
     //Paint tmpPaint = new Paint();
 
-    public DragADotGame2(Context context) {
+    public DragADotGame3(Context context) {
         super(context);
         redPaint.setColor(Color.RED);
         //redPaint.setStrokeWidth(25);
         //tmpPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         //tmpPaint.setAntiAlias(true);
         //tmpPaint.setColor(Color.CYAN);
-        wall1.set(220, 660, 720, 740 );
+        wall1.set(0, 475, 720, 555);
         wallsList.add(wall1);
-        wall2.set(0, 300, 500, 380);
-        wallsList.add(wall2);
         leftWall.set(0, 0, 10, 1040);
         wallsList.add(leftWall);
         topWall.set(0, 0, 720, 10);
@@ -62,11 +59,11 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
         setOnTouchListener(this);
     }
 
-    public DragADotGame2(Context context, AttributeSet attrs) {
+    public DragADotGame3(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public DragADotGame2(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DragADotGame3(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -87,8 +84,11 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
         scaleWidth = (float) width / defaultPixelsWidth;
         scaleHeight = (float) height / defaultPixelsHeight;
 
+
         canvas.drawCircle(dotX * scaleWidth,dotY * scaleHeight,dotR * scaleWidth,redPaint);
         canvas.drawCircle(dot2X * scaleWidth, dot2Y * scaleHeight, dotR * scaleWidth, redPaint);
+
+
 
         for (int i = 0; i < wallsList.size(); i++) {
             Rect rect = (Rect) wallsList.get(i);
@@ -96,9 +96,9 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
             canvas.drawRect(rect.left * scaleWidth, rect.top * scaleHeight, rect.right * scaleWidth, rect.bottom * scaleHeight, redPaint);
         }
 
-        if (inDot) {
-            canvas.drawColor(redPaint.getColor());
-        }
+//        if (inDot) {
+//            canvas.drawColor(redPaint.getColor());
+//        }
     }
 
     @Override
@@ -106,50 +106,42 @@ public class DragADotGame2 extends View implements View.OnTouchListener {
         //dotX = event.getX();
         //dotY = event.getY();
 
-        if (event.getPointerCount() > 1) {
-            resetDot();
-        }
-        else {
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN:
 
-                    int distanceFinger = (int) (Math.sqrt((event.getX() - dotX*scaleWidth) * (event.getX() - dotX*scaleWidth) + ((event.getY() - dotY*scaleHeight) * (event.getY() - dotY*scaleHeight))));
-                    if (distanceFinger < dotR*scaleWidth) {
-                        inDot = true;
-                        dotX = event.getX()/scaleWidth;
-                        dotY = event.getY()/scaleHeight;
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+
+                int distanceFinger = (int) (Math.sqrt((event.getX() - dotX*scaleWidth) * (event.getX() - dotX*scaleWidth) + ((event.getY() - dotY*scaleHeight) * (event.getY() - dotY*scaleHeight))));
+                if (distanceFinger < dotR*scaleWidth) {
+                    inDot = true;
+                    dotX = event.getX()/scaleWidth;
+                    dotY = event.getY()/scaleHeight;
+                }
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                if (inDot) {
+                    dotX = event.getX()/scaleWidth;
+                    dotY = event.getY()/scaleHeight;
+                    int distanceDots = (int) (Math.sqrt(((dot2X - dotX) * (dot2X - dotX))*scaleWidth + ((dot2Y - dotY) * (dot2Y - dotY))*scaleHeight));
+                    if (distanceDots < 2 * dotR *scaleWidth) {
+                        win = true;
+                        listener.puzzleFinished();
                     }
-                    break;
+                }
 
-                case MotionEvent.ACTION_MOVE:
-                    if (event.getPointerCount() > 1 && inDot) {
-                        //Toast toast = Toast.makeText(getContext(), "Cheater! I think not", Toast.LENGTH_SHORT);
-                        //toast.show();
-                        inDot = false;
-                        resetDot();
-                    } else {
-                        if (inDot) {
-                            dotX = event.getX()/scaleWidth;
-                            dotY = event.getY()/scaleHeight;
-                            int distanceDots = (int) (Math.sqrt(((dot2X - dotX) * (dot2X - dotX))*scaleWidth + ((dot2Y - dotY) * (dot2Y - dotY))*scaleHeight));
-                            if (distanceDots < 2 * dotR *scaleWidth) {
-                                win = true;
-                                listener.puzzleFinished();
-                            }
-                        }
-                    }
-                    break;
+                break;
 
-                case MotionEvent.ACTION_UP:
-                    inDot = false;
-                    resetDot();
-                    break;
-            }
-
-            if (inDot) {
-                checkCollision(wallsList, event.getX(), event.getY());
-            }
+            case MotionEvent.ACTION_UP:
+                inDot = false;
+                resetDot();
+                break;
         }
+
+        if (inDot) {
+            checkCollision(wallsList, event.getX(), event.getY());
+        }
+
 
         invalidate();
         return true;

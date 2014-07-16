@@ -15,11 +15,13 @@ import android.widget.Toast;
  */
 public class DragADotGame extends View implements View.OnTouchListener {
 
-    float dotX = 100;
-    float dotY = 100;
+    float dotX = 150;
+    float dotY = 150;
     float dotR = 70;
-    float dot2X = 600;
-    float dot2Y = 900;
+    float dot2X = 590;
+    float dot2Y = 890;
+    float scaleWidth;
+    float scaleHeight;
 
     PuzzleFinishListener listener;
 
@@ -49,11 +51,23 @@ public class DragADotGame extends View implements View.OnTouchListener {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(dotX,dotY,dotR,redPaint);
-        canvas.drawCircle(dot2X,dot2Y,dotR,redPaint);
-        if (inDot)
-            canvas.drawColor(redPaint.getColor());
 
+        long defaultPixelsWidth = 720;
+        long defaultPixelsHeight = 1040;
+
+        long width = canvas.getWidth();
+        long height = canvas.getHeight();
+
+        scaleWidth = (float) width / defaultPixelsWidth;
+        scaleHeight = (float) height / defaultPixelsHeight;
+
+
+        canvas.drawCircle(dotX * scaleWidth,dotY * scaleHeight,dotR * scaleWidth,redPaint);
+        canvas.drawCircle(dot2X * scaleWidth, dot2Y * scaleHeight, dotR * scaleWidth, redPaint);
+
+        if (inDot) {
+            //canvas.drawColor(redPaint.getColor());
+        }
 
     }
 
@@ -68,12 +82,11 @@ public class DragADotGame extends View implements View.OnTouchListener {
             case MotionEvent.ACTION_DOWN:
 
 
-                int distanceFinger = (int) (Math.sqrt((event.getX() - dotX) * (event.getX() - dotX) + ((event.getY() - dotY) * (event.getY() - dotY))));
-                if (distanceFinger < dotR)
-                {
+                int distanceFinger = (int) (Math.sqrt((event.getX() - dotX*scaleWidth) * (event.getX() - dotX*scaleWidth) + ((event.getY() - dotY*scaleHeight) * (event.getY() - dotY*scaleHeight))));
+                if (distanceFinger < dotR*scaleWidth) {
                     inDot = true;
-                    dotX = event.getX();
-                    dotY = event.getY();
+                    dotX = event.getX()/scaleWidth;
+                    dotY = event.getY()/scaleHeight;
                 }
 
 
@@ -93,10 +106,10 @@ public class DragADotGame extends View implements View.OnTouchListener {
                 }
                 else {
                     if (inDot) {
-                        dotX = event.getX();
-                        dotY = event.getY();
-                        int distanceDots = (int) (Math.sqrt((dot2X - dotX) * (dot2X - dotX) + ((dot2Y - dotY) * (dot2Y - dotY))));
-                        if (distanceDots < 2 * dotR) {
+                        dotX = event.getX()/scaleWidth;
+                        dotY = event.getY()/scaleHeight;
+                        int distanceDots = (int) (Math.sqrt(((dot2X - dotX) * (dot2X - dotX))*scaleWidth + ((dot2Y - dotY) * (dot2Y - dotY))*scaleHeight));
+                        if (distanceDots < 2 * dotR *scaleWidth) {
                             win = true;
                             listener.puzzleFinished();
                         }
