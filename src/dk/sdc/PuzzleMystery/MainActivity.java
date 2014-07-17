@@ -1,5 +1,6 @@
 package dk.sdc.PuzzleMystery;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 
@@ -19,6 +20,8 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        getActionBar().hide();
 
 
         Button playButton = (Button) findViewById(R.id.LevelSelectButton);

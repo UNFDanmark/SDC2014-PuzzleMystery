@@ -25,6 +25,8 @@ public class FreeThePrincessActivity extends Activity {
         super.onCreate(savedInstanceState);
         vibrate = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
         setContentView(R.layout.freetheprincess);
+        getActionBar().setTitle("Ice tap");
+        getActionBar().setIcon(R.drawable.jigsaw);
         filter.setARGB(255, 77, 148, 255);
         final ImageButton myButton = (ImageButton) findViewById(R.id.isButton);
         myButton.setColorFilter(filter.getColor());

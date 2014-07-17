@@ -13,6 +13,8 @@ public class WinScreen extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.winscreen_layout);
+        getActionBar().setTitle("Success!");
+        getActionBar().setIcon(R.drawable.jigsaw);
         Button continueButton = (Button) findViewById(R.id.ContinueButton);
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override

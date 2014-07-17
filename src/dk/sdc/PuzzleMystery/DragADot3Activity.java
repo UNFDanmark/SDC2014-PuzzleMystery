@@ -13,6 +13,8 @@ public class DragADot3Activity extends Activity {
         super.onCreate(savedInstanceState);
         DragADotGame3 game = new DragADotGame3(getApplicationContext());
         setContentView(game);
+        getActionBar().setTitle("Johnny Two Finger");
+        getActionBar().setIcon(R.drawable.jigsaw);
 
         game.setPuzzleFinishListener(new PuzzleFinishListener() {
             @Override

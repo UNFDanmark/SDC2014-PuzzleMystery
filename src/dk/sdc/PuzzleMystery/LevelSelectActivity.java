@@ -15,6 +15,8 @@ public class LevelSelectActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.levelselectlayout);
+        getActionBar().setTitle("Choose your path");
+        getActionBar().setIcon(R.drawable.jigsaw);
 
         Button dragPuzzle1Button = (Button) findViewById(R.id.dragPuzzle1);
         Button dragPuzzle2Button = (Button) findViewById(R.id.dragPuzzle2);

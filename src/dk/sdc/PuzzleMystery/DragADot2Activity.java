@@ -13,6 +13,8 @@ public class DragADot2Activity extends Activity {
         super.onCreate(savedInstanceState);
         DragADotGame2 game = new DragADotGame2(getApplicationContext());
         setContentView(game);
+        getActionBar().setTitle("Mazer");
+        getActionBar().setIcon(R.drawable.jigsaw);
 
         game.setPuzzleFinishListener(new PuzzleFinishListener() {
             @Override

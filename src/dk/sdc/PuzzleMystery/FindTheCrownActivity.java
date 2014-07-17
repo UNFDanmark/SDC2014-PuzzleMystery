@@ -13,6 +13,8 @@ public class FindTheCrownActivity extends Activity {
         super.onCreate(savedInstanceState);
         FindTheCrownGame game = new FindTheCrownGame(getApplicationContext());
         setContentView(game);
+        getActionBar().setTitle("Pick up the crown");
+        getActionBar().setIcon(R.drawable.jigsaw);
 
         game.setPuzzleFinishListener(new PuzzleFinishListener() {
             @Override
