@@ -23,14 +23,22 @@ public class MainActivity extends Activity {
 
         getActionBar().hide();
 
-
         Button playButton = (Button) findViewById(R.id.LevelSelectButton);
+        Button creditsButton = (Button) findViewById(R.id.credits_button);
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent playIntent = new Intent(getApplicationContext(), LevelSelectActivity.class);
                 startActivity(playIntent);
+            }
+        });
+
+        creditsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent creditsIntent = new Intent(getApplicationContext(), CreditsActivity.class);
+                startActivity(creditsIntent);
             }
         });
     }

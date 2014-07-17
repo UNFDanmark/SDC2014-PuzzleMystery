@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Credits"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"
+            android:textSize="45dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center_horizontal"
+            android:text='This icon is under the "Creative Commons Attribution" license. '
+            android:id="@+id/textView"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Development team"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:id="@+id/textView3"
+            android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center_horizontal"
+            android:text="Camilla Bjerggaard \n Jonas Andersen \n Jonas Zaunbrecher \n Thomas Møller Grosen"
+            android:id="@+id/textView5"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Special Thanks"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:id="@+id/textView6"
+            android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center_horizontal"
+            android:text="All the people who helped make the UNF Software Development Camp 2014,\nand all the awesome participants."
+            android:id="@+id/textView4"/>
+</LinearLayout>

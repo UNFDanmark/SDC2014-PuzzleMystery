@@ -2,23 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
-    <TextView
+              android:layout_height="fill_parent" android:weightSum="1"><![CDATA[
+    TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_marginTop="50dp"
             android:text="Puzzlr"
             android:textSize="100dp"
+            android:fontFamily="Ubuntu"
             android:id="@+id/textView"
             android:layout_gravity="center_horizontal"/>
-    <Button
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="75dp"
-            android:text="Play"
-            android:textSize="50dp"
-            android:id="@+id/LevelSelectButton"
-            android:layout_gravity="center_horizontal"/>
+
+
+    ]]>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_width="236dp"
+                android:layout_height="250dp"
+                android:id="@+id/imageView" android:layout_gravity="center_horizontal" android:src="@drawable/jigsaw"/>
+        <Button
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:text="Play"
+                android:textSize="50dp"
+                android:id="@+id/LevelSelectButton"
+                android:layout_gravity="center_horizontal"/>
+        <Button
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="100dp"
+                android:text="Credits"
+                android:id="@+id/credits_button" android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
 </LinearLayout>
 
