@@ -3,7 +3,9 @@ package dk.sdc.PuzzleMystery;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -26,13 +28,17 @@ public class DragADotGame extends View implements View.OnTouchListener {
     PuzzleFinishListener listener;
 
     Paint redPaint = new Paint();
+    Paint blackPaint = new Paint();
+
     boolean inDot = false;
     boolean win = false;
 
 
     public DragADotGame(Context context) {
         super(context);
-        redPaint.setARGB(255,255,0,0);
+
+        redPaint.setARGB(255, 255, 0, 0);
+        blackPaint.setColor(Color.BLACK);
         setOnTouchListener(this);
     }
 
@@ -63,10 +69,12 @@ public class DragADotGame extends View implements View.OnTouchListener {
 
 
         canvas.drawCircle(dotX * scaleWidth,dotY * scaleHeight,dotR * scaleWidth,redPaint);
+        canvas.drawCircle(dotX * scaleWidth,dotY * scaleHeight,dotR * scaleWidth/3,blackPaint);
+
         canvas.drawCircle(dot2X * scaleWidth, dot2Y * scaleHeight, dotR * scaleWidth, redPaint);
 
         if (inDot) {
-            //canvas.drawColor(redPaint.getColor());
+            canvas.drawColor(redPaint.getColor());
         }
 
     }
@@ -109,7 +117,7 @@ public class DragADotGame extends View implements View.OnTouchListener {
                         dotX = event.getX()/scaleWidth;
                         dotY = event.getY()/scaleHeight;
                         int distanceDots = (int) (Math.sqrt(((dot2X - dotX) * (dot2X - dotX))*scaleWidth + ((dot2Y - dotY) * (dot2Y - dotY))*scaleHeight));
-                        if (distanceDots < 2 * dotR *scaleWidth) {
+                        if (distanceDots < 2 * dotR *scaleWidth && !win) {
                             win = true;
                             listener.puzzleFinished();
                         }

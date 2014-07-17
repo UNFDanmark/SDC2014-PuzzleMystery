@@ -1,6 +1,7 @@
 package dk.sdc.PuzzleMystery;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 /**
@@ -12,5 +13,14 @@ public class FindTheCrownActivity extends Activity {
         super.onCreate(savedInstanceState);
         FindTheCrownGame game = new FindTheCrownGame(getApplicationContext());
         setContentView(game);
+
+        game.setPuzzleFinishListener(new PuzzleFinishListener() {
+            @Override
+            public void puzzleFinished() {
+                Intent winscreen = new Intent(getApplicationContext(), WinScreen.class);
+                startActivity(winscreen);
+                finish();
+            }
+        });
     }
 }

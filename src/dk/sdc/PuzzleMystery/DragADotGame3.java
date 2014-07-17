@@ -32,6 +32,7 @@ public class DragADotGame3 extends View implements View.OnTouchListener {
     Rect rightWall = new Rect();
     Rect bottomWall = new Rect();
     Paint redPaint = new Paint();
+    Paint blackPaint = new Paint();
     boolean inDot = false;
     boolean win = false;
 
@@ -42,6 +43,7 @@ public class DragADotGame3 extends View implements View.OnTouchListener {
     public DragADotGame3(Context context) {
         super(context);
         redPaint.setColor(Color.RED);
+        blackPaint.setColor(Color.BLACK);
         //redPaint.setStrokeWidth(25);
         //tmpPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         //tmpPaint.setAntiAlias(true);
@@ -87,8 +89,7 @@ public class DragADotGame3 extends View implements View.OnTouchListener {
 
         canvas.drawCircle(dotX * scaleWidth,dotY * scaleHeight,dotR * scaleWidth,redPaint);
         canvas.drawCircle(dot2X * scaleWidth, dot2Y * scaleHeight, dotR * scaleWidth, redPaint);
-
-
+        canvas.drawCircle(dotX * scaleWidth,dotY * scaleHeight,dotR * scaleWidth/3,blackPaint);
 
         for (int i = 0; i < wallsList.size(); i++) {
             Rect rect = (Rect) wallsList.get(i);
@@ -124,7 +125,7 @@ public class DragADotGame3 extends View implements View.OnTouchListener {
                     dotX = event.getX()/scaleWidth;
                     dotY = event.getY()/scaleHeight;
                     int distanceDots = (int) (Math.sqrt(((dot2X - dotX) * (dot2X - dotX))*scaleWidth + ((dot2Y - dotY) * (dot2Y - dotY))*scaleHeight));
-                    if (distanceDots < 2 * dotR *scaleWidth) {
+                    if (distanceDots < 2 * dotR *scaleWidth && !win) {
                         win = true;
                         listener.puzzleFinished();
                     }
@@ -134,7 +135,6 @@ public class DragADotGame3 extends View implements View.OnTouchListener {
 
             case MotionEvent.ACTION_UP:
                 inDot = false;
-                resetDot();
                 break;
         }
 

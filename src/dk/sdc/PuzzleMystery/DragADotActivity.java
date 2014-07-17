@@ -1,6 +1,7 @@
 package dk.sdc.PuzzleMystery;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 /**
@@ -16,6 +17,8 @@ public class DragADotActivity extends Activity{
         game.setPuzzleFinishListener(new PuzzleFinishListener() {
             @Override
             public void puzzleFinished() {
+                Intent winscreen = new Intent(getApplicationContext(), WinScreen.class);
+                startActivity(winscreen);
                 finish();
             }
         });
