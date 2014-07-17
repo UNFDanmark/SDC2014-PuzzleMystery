@@ -19,7 +19,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:gravity="center_horizontal"
             android:text='This icon is under the "Creative Commons Attribution" license. '
-            android:id="@+id/textView"/>
+            android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

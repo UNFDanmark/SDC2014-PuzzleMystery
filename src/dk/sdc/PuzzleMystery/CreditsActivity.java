@@ -12,6 +12,7 @@ public class CreditsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.credits_layout);
 
+        getActionBar().hide();
 
     }
 }

@@ -33,7 +33,15 @@
         <activity android:name=".DragADot3Activity"
                   android:screenOrientation="portrait"
                   android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity android:name=".WinScreen"/>
-        <activity android:name=".CreditsActivity"/>
+        <activity android:name=".WinScreen"
+                  android:screenOrientation="portrait"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>/>
+        <activity android:name=".CreditsActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".SequenceActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <activity android:name=".DragADot4Activity"/>/>
     </application>
 </manifest>

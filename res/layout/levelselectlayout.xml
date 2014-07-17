@@ -14,15 +14,17 @@
             android:id="@+id/textViewTop"
             android:layout_gravity="center_horizontal"/>
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Drag the dot"
-            android:id="@+id/textView" android:textSize="20dp"/>
+            android:text="Drag"
+            android:id="@+id/textView"
+            android:background="#ffff0003"/>
     <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#ffff0000"
             android:gravity="center_horizontal">
         <Button
                 android:layout_width="120dp"
@@ -40,16 +42,41 @@
                 android:text="3"
                 android:id="@+id/dragPuzzle3"/>
     </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="#ffff0000"
+            android:layout_height="wrap_content" android:gravity="center">
+        <Button
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="4"
+                android:id="@+id/dragPuzzle4"/>
+        <Button
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="5"
+                android:id="@+id/button2" android:layout_gravity="right" android:visibility="invisible"/>
+        <Button
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="6"
+                android:id="@+id/button3" android:visibility="invisible"/>
+    </LinearLayout>
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Princess"
-            android:id="@+id/textView2" android:textSize="20dp"/>
+            android:text="Tap"
+            android:id="@+id/textView2"
+            android:background="#ff000cff"/>
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#ff000cff"
             android:gravity="center_horizontal">
         <Button
                 android:layout_width="120dp"
