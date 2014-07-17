@@ -42,6 +42,7 @@
         <activity android:name=".SequenceActivity"
                   android:screenOrientation="portrait"
                   android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity android:name=".DragADot4Activity"/>/>
+        <activity android:name=".DragADot4Activity"/>
+        <activity android:name=".DragADot5Activity"/>/>
     </application>
 </manifest>

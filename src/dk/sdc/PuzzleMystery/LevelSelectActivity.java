@@ -22,6 +22,7 @@ public class LevelSelectActivity extends Activity {
         Button dragPuzzle2Button = (Button) findViewById(R.id.dragPuzzle2);
         Button dragPuzzle3Button = (Button) findViewById(R.id.dragPuzzle3);
         Button dragPuzzle4Button = (Button) findViewById(R.id.dragPuzzle4);
+        Button dragPuzzle5Button = (Button) findViewById(R.id.dragPuzzle5);
         Button clickPuzzle1Button = (Button) findViewById(R.id.clickPuzzle1);
         Button clickPuzzle2Button = (Button) findViewById(R.id.clickPuzzle2);
         Button clickPuzzle3Button = (Button) findViewById(R.id.clickPuzzle3);
@@ -54,6 +55,14 @@ public class LevelSelectActivity extends Activity {
             public void onClick(View v) {
                 Intent puzzle4Intent = new Intent(getApplicationContext(), DragADot4Activity.class);
                 startActivity(puzzle4Intent);
+            }
+        });
+
+        dragPuzzle5Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent puzzle5Intent = new Intent(getApplicationContext(), DragADot5Activity.class);
+                startActivity(puzzle5Intent);
             }
         });
 
