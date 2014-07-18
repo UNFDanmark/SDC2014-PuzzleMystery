@@ -6,14 +6,6 @@
               android:layout_height="match_parent"
               android:background="#ff993399"
               android:weightSum="1">
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Free the princess"
-            android:id="@+id/yhi"
-            android:textSize="18dp"
-            android:longClickable="false"
-            android:paddingLeft="120dp"/>
     <ImageButton
             android:layout_width="249dp"
             android:layout_height="wrap_content"
