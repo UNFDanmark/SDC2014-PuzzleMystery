@@ -45,7 +45,7 @@ public class LevelSelectActivity extends Activity {
         dragPuzzle3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent puzzle3Intent = new Intent(getApplicationContext(), DragADot3Activity.class);
+                Intent puzzle3Intent = new Intent(getApplicationContext(), DragADot5Activity.class);
                 startActivity(puzzle3Intent);
             }
         });
@@ -61,7 +61,7 @@ public class LevelSelectActivity extends Activity {
         dragPuzzle5Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent puzzle5Intent = new Intent(getApplicationContext(), DragADot5Activity.class);
+                Intent puzzle5Intent = new Intent(getApplicationContext(), DragADot3Activity.class);
                 startActivity(puzzle5Intent);
             }
         });

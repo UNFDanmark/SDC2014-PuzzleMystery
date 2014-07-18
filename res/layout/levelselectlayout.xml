@@ -51,11 +51,11 @@
                 android:layout_width="120dp"
                 android:layout_height="50dp"
                 android:text="4"
-                android:id="@+id/dragPuzzle4"/>
+                android:id="@+id/dragPuzzle4" android:visibility="invisible"/>
         <Button
                 android:layout_width="120dp"
                 android:layout_height="50dp"
-                android:text="5"
+                android:text="Bonus"
                 android:id="@+id/dragPuzzle5" android:layout_gravity="right" android:visibility="visible"/>
         <Button
                 android:layout_width="120dp"

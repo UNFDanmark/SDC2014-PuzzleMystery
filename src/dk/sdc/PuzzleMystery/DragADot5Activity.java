@@ -13,7 +13,7 @@ public class DragADot5Activity extends Activity {
         super.onCreate(savedInstanceState);
         DragADotGame5 game = new DragADotGame5(getApplicationContext());
         setContentView(game);
-        getActionBar().setTitle("level 5");
+        getActionBar().setTitle("A-maze-ing");
         getActionBar().setIcon(R.drawable.jigsaw);
 
         game.setPuzzleFinishListener(new PuzzleFinishListener() {

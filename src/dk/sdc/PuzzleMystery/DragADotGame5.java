@@ -16,11 +16,11 @@ import java.util.ArrayList;
  */
 public class DragADotGame5 extends View implements View.OnTouchListener {
 
-    float dot2X = 570;
-    float dot2Y = 890;
-    float dotR = 30;
-    float dotX = 75;
-    float dotY = 75;
+    float dot2X = 354;
+    float dot2Y = 147;
+    float dotR = 50;
+    float dotX = 118;
+    float dotY = 147;
     float scaleWidth;
     float scaleHeight;
 
@@ -44,29 +44,23 @@ public class DragADotGame5 extends View implements View.OnTouchListener {
 
     ArrayList wallsList = new ArrayList();
 
-    //Paint tmpPaint = new Paint();
-
     public DragADotGame5(Context context) {
         super(context);
         redPaint.setColor(Color.RED);
         blackPaint.setColor(Color.BLACK);
-        //redPaint.setStrokeWidth(25);
-        //tmpPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        //tmpPaint.setAntiAlias(true);
-        //tmpPaint.setColor(Color.CYAN);
-        wall1.set(115, 0, 145, 630 );
+        wall1.set(225, 0, 255, 815 );
         wallsList.add(wall1);
-        wall2.set(0, 300, 500, 380);
+        wall2.set(255, 785, 490, 815);
         wallsList.add(wall2);
-        wall3.set(220, 660, 720, 740 );
+        wall3.set(650, 785, 720, 815 );
         wallsList.add(wall3);
-        wall4.set(0, 300, 500, 380);
+        wall4.set(415, 540, 720, 570);
         wallsList.add(wall4);
-        wall5.set(220, 660, 720, 740 );
+        wall5.set(255, 295, 495, 325 );
         wallsList.add(wall5);
-        wall6.set(0, 300, 500, 380);
+        wall6.set(465, 228,495, 295);
         wallsList.add(wall6);
-        wall7.set(0, 300, 500, 380);
+        wall7.set(465, 0, 495, 67);
         wallsList.add(wall7);
         leftWall.set(0, 0, 10, 1040);
         wallsList.add(leftWall);
@@ -183,8 +177,8 @@ public class DragADotGame5 extends View implements View.OnTouchListener {
     }
 
     private void resetDot() {
-        dotX = 75;
-        dotY = 75;
+        dotX = 118;
+        dotY = 147;
         inDot = false;
     }
 }
